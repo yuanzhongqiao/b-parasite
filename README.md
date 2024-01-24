@@ -5,51 +5,83 @@
   <img src="img/resized/b-parasite-2.0.0.jpg" width="512px" border="0" alt="PCB front and back photo" />
 </p>
 
-b-parasite is an open source soil moisture and ambient temperature/humidity/light sensor.
 
-# Features
-* Capacitive Soil moisture sensor - see [this blog post](https://rbaron.net/blog/2021/04/05/How-capacitive-soil-moisture-sensors-work.html), [this Twitter thread](https://twitter.com/rbaron_/status/1367182806368071685), and [this post](https://wemakethings.net/2012/09/26/capacitance_measurement/) for nice resources on how they work
-* Air temperature and humidity sensor using a [Sensirion's SHTC3](https://www.sensirion.com/en/environmental-sensors/humidity-sensors/digital-humidity-sensor-shtc3-our-new-standard-for-consumer-electronics/)
-* Light sensor using an [ALS-PT19](https://en.everlight.com/wp-content/plugins/ItemRelationship/product_files/pdf/ALS-PT19-315C-L177-TR8_V8.pdf) phototransistor
-* Powered by a common CR2032 coin cell, potentially for over two years
-* Support for [nRF52840](https://www.nordicsemi.com/products/nrf52840) and [nRF52833](https://www.nordicsemi.com/products/nrf52833) modules
-* Open hardware and open source design
-
-# Software
-This repository also hosts a few different firmware samples for b-parasite.
-
-|Sample|Description|Extra Documentation|
-|---|---|---|
-|[samples/ble](./code/nrf-connect/samples/ble)|This is the most battle-tested and useful firmware. It periodically reads all sensors and broadcast them via Bluetooth Low Energy (BLE). It works with [Home Assistant](https://www.home-assistant.io/) + [BTHome](https://bthome.io/) out of the box. |[Docs](./code/nrf-connect/samples/ble/README.md)|
-|[samples/zigbee](./code/nrf-connect/samples/zigbee)| An experimental/educational/exploratory basic Zigbee sample built on [nRF Connect + ZBOSS](https://developer.nordicsemi.com/nRF_Connect_SDK/doc/latest/nrf/ug_zigbee.html). It integrates with [Home Assistant](https://www.home-assistant.io/) via [ZHA](https://www.home-assistant.io/integrations/zha) or [Zigbee2MQTT](https://www.zigbee2mqtt.io/). |[Docs](./code/nrf-connect/samples/zigbee/README.md)|
-|[samples/blinky](./code/nrf-connect/samples/blinky)| The classic "Hello, world" |-|
-|[samples/soil_read_loop](./code/nrf-connect/samples/soil_read_loop)| Reads the soil moisture sensor on a loop. Useful for experimenting and calibrating the sensor. |-|
-|[samples/input](./code/nrf-connect/samples/input)| Handles button presses. Useful for power profiling GPIO interrupts and testing debouncing for push switches on [boards that have them](https://github.com/rbaron/b-parasite/wiki/Hardware-Versions). |-|
-
-# Documentation
-Information about how to order, assemble, build the samples, protect the sensor and flash the firmware is on [the Wiki](https://github.com/rbaron/b-parasite/wiki).
-
-# Repository Organization
-* [code/nrf-connect/](./code/nrf-connect/) - Common library and samples, built with Nordic's [nRF Connect SDK](https://www.nordicsemi.com/Products/Development-software/nrf-connect-sdk).
-* [kicad/](./kicad/) - KiCad schematic, layout and fabrication files for the printed circuit board (PCB)
-* [data/](data/) - data for testing and sensor calibration
-* [bridge/](bridge/) - an [ESPHome](https://github.com/esphome/esphome)-based BLE-MQTT bridge
-* [case/](case/) - a 3D printable case
-
-<p align="center">
-  <img src="img/resized/img2.jpg" border="0" alt="b-parasite stuck into a small plant vase" />
+<div class="Box-sc-g0xbh4-0 bJMeLZ js-snippet-clipboard-copy-unpositioned" data-hpc="true"><article class="markdown-body entry-content container-lg" itemprop="text"><p dir="auto"><a href="https://github.com/rbaron/b-parasite/actions/workflows/b-parasite.yml"><img src="https://github.com/rbaron/b-parasite/actions/workflows/b-parasite.yml/badge.svg?branch=main" alt="b-寄生虫固件构建" style="max-width: 100%;"></a></p>
+<h1 tabindex="-1" dir="auto"><a id="user-content-b-parasite" class="anchor" aria-hidden="true" tabindex="-1" href="#b-parasite"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">b-寄生虫</font></font></h1>
+<p align="center" dir="auto">
+  <a target="_blank" rel="noopener noreferrer" href="/rbaron/b-parasite/blob/main/img/resized/b-parasite-2.0.0.jpg"><img src="/rbaron/b-parasite/raw/main/img/resized/b-parasite-2.0.0.jpg" width="512px" border="0" alt="PCB正面和背面照片" style="max-width: 100%;"></a>
 </p>
-
-# Case
-<p align="center">
-  <img src="img/case/screenshot.png" alt="Render of the original 3D printable case" />
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">b-parasite 是一种开源土壤湿度和环境温度/湿度/光传感器。</font></font></p>
+<h1 tabindex="-1" dir="auto"><a id="user-content-features" class="anchor" aria-hidden="true" tabindex="-1" href="#features"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">特征</font></font></h1>
+<ul dir="auto">
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">电容式土壤湿度传感器 - 请参阅</font></font><a href="https://rbaron.net/blog/2021/04/05/How-capacitive-soil-moisture-sensors-work.html" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">这篇博客文章</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">、</font></font><a href="https://twitter.com/rbaron_/status/1367182806368071685" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">这篇 Twitter 帖子</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">和</font></font><a href="https://wemakethings.net/2012/09/26/capacitance_measurement/" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">这篇文章，</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">了解有关其工作原理的优质资源</font></font></li>
+<li><font style="vertical-align: inherit;"><a href="https://www.sensirion.com/en/environmental-sensors/humidity-sensors/digital-humidity-sensor-shtc3-our-new-standard-for-consumer-electronics/" rel="nofollow"><font style="vertical-align: inherit;">使用Sensirion 的 SHTC3 的</font></a><font style="vertical-align: inherit;">空气温度和湿度传感器</font></font><a href="https://www.sensirion.com/en/environmental-sensors/humidity-sensors/digital-humidity-sensor-shtc3-our-new-standard-for-consumer-electronics/" rel="nofollow"><font style="vertical-align: inherit;"></font></a></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">使用</font></font><a href="https://en.everlight.com/wp-content/plugins/ItemRelationship/product_files/pdf/ALS-PT19-315C-L177-TR8_V8.pdf" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">ALS-PT19</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">光电晶体管的光传感器</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">由普通 CR2032 纽扣电池供电，可持续使用两年以上</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">支持</font></font><a href="https://www.nordicsemi.com/products/nrf52840" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">nRF52840</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">和</font></font><a href="https://www.nordicsemi.com/products/nrf52833" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">nRF52833</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">模块</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">开放硬件和开源设计</font></font></li>
+</ul>
+<h1 tabindex="-1" dir="auto"><a id="user-content-software" class="anchor" aria-hidden="true" tabindex="-1" href="#software"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">软件</font></font></h1>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">该存储库还托管 b-parasite 的一些不同的固件示例。</font></font></p>
+<table>
+<thead>
+<tr>
+<th><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">样本</font></font></th>
+<th><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">描述</font></font></th>
+<th><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">额外文档</font></font></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="/rbaron/b-parasite/blob/main/code/nrf-connect/samples/ble"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">样品/BLE</font></font></a></td>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">这是最久经考验、最有用的固件。</font><font style="vertical-align: inherit;">它定期读取所有传感器并通过低功耗蓝牙 (BLE) 广播它们。</font><font style="vertical-align: inherit;">它可以与</font></font><a href="https://www.home-assistant.io/" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Home Assistant</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> + </font></font><a href="https://bthome.io/" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">BTHome</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">一起使用，开箱即用。</font></font></td>
+<td><a href="/rbaron/b-parasite/blob/main/code/nrf-connect/samples/ble/README.md"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">文档</font></font></a></td>
+</tr>
+<tr>
+<td><a href="/rbaron/b-parasite/blob/main/code/nrf-connect/samples/zigbee"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">样品/zigbee</font></font></a></td>
+<td><font style="vertical-align: inherit;"></font><a href="https://developer.nordicsemi.com/nRF_Connect_SDK/doc/latest/nrf/ug_zigbee.html" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">基于nRF Connect + ZBOSS</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">构建的实验性/教育性/探索性基本 Zigbee 示例</font><font style="vertical-align: inherit;">。</font><font style="vertical-align: inherit;">它通过</font><a href="https://www.home-assistant.io/integrations/zha" rel="nofollow"><font style="vertical-align: inherit;">ZHA</font></a><font style="vertical-align: inherit;">或</font><a href="https://www.zigbee2mqtt.io/" rel="nofollow"><font style="vertical-align: inherit;">Zigbee2MQTT与</font></a></font><a href="https://www.home-assistant.io/" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Home Assistant</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">集成</font><font style="vertical-align: inherit;">。</font></font><a href="https://www.home-assistant.io/integrations/zha" rel="nofollow"><font style="vertical-align: inherit;"></font></a><font style="vertical-align: inherit;"></font><a href="https://www.zigbee2mqtt.io/" rel="nofollow"><font style="vertical-align: inherit;"></font></a><font style="vertical-align: inherit;"></font></td>
+<td><a href="/rbaron/b-parasite/blob/main/code/nrf-connect/samples/zigbee/README.md"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">文档</font></font></a></td>
+</tr>
+<tr>
+<td><a href="/rbaron/b-parasite/blob/main/code/nrf-connect/samples/blinky"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">样品/闪烁</font></font></a></td>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">经典之作《你好，世界》</font></font></td>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">-</font></font></td>
+</tr>
+<tr>
+<td><a href="/rbaron/b-parasite/blob/main/code/nrf-connect/samples/soil_read_loop"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">样本/soil_read_loop</font></font></a></td>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">循环读取土壤湿度传感器。</font><font style="vertical-align: inherit;">对于实验和校准传感器很有用。</font></font></td>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">-</font></font></td>
+</tr>
+<tr>
+<td><a href="/rbaron/b-parasite/blob/main/code/nrf-connect/samples/input"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">样本/输入</font></font></a></td>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">处理按钮按下操作。</font><font style="vertical-align: inherit;">对于电源分析 GPIO 中断和测试具有中断</font></font><a href="https://github.com/rbaron/b-parasite/wiki/Hardware-Versions"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">的板上</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">按钮开关的去抖非常有用。</font></font></td>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">-</font></font></td>
+</tr>
+</tbody>
+</table>
+<h1 tabindex="-1" dir="auto"><a id="user-content-documentation" class="anchor" aria-hidden="true" tabindex="-1" href="#documentation"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">文档</font></font></h1>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">有关如何订购、组装、构建样品、保护传感器和刷新固件的信息，请参见</font></font><a href="https://github.com/rbaron/b-parasite/wiki"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Wiki</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">。</font></font></p>
+<h1 tabindex="-1" dir="auto"><a id="user-content-repository-organization" class="anchor" aria-hidden="true" tabindex="-1" href="#repository-organization"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">存储库组织</font></font></h1>
+<ul dir="auto">
+<li><a href="/rbaron/b-parasite/blob/main/code/nrf-connect"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">code/nrf-connect/</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> - 通用库和示例，使用 Nordic 的</font></font><a href="https://www.nordicsemi.com/Products/Development-software/nrf-connect-sdk" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">nRF Connect SDK</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">构建。</font></font></li>
+<li><a href="/rbaron/b-parasite/blob/main/kicad"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">kicad/</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> - 印刷电路板 (PCB) 的 KiCad 原理图、布局和制造文件</font></font></li>
+<li><a href="/rbaron/b-parasite/blob/main/data"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">data/</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> - 用于测试和传感器校准的数据</font></font></li>
+<li><a href="/rbaron/b-parasite/blob/main/bridge"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">bridge/</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> -基于</font></font><a href="https://github.com/esphome/esphome"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">ESPHome</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">的 BLE-MQTT 桥</font></font></li>
+<li><a href="/rbaron/b-parasite/blob/main/case"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">case/</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> - 可 3D 打印的案例</font></font></li>
+</ul>
+<p align="center" dir="auto">
+  <a target="_blank" rel="noopener noreferrer" href="/rbaron/b-parasite/blob/main/img/resized/img2.jpg"><img src="/rbaron/b-parasite/raw/main/img/resized/img2.jpg" border="0" alt="b-寄生虫卡在小花瓶里" style="max-width: 100%;"></a>
 </p>
-
-We have three different 3D-printable cases:
-1. Original snap-on case - [case/Top.stl](./case/Top.stl), [case/Bottom.stl](./case/Bottom.stl)
-2. High airflow - [case/b_parasite_case_high_airflow.stl](./case/b_parasite_case_high_airflow.stl)
-3. Mushroom-style - available on [Printables](https://www.printables.com/model/456571-mushroomcap-for-b-parasite-soil-moisture-sensor)
-
-# License
-The hardware and associated design files are released under the [Creative Commons CC BY-SA 4.0 license](https://creativecommons.org/licenses/by-sa/4.0/).
-The code is released under the [MIT license](https://opensource.org/licenses/MIT).
+<h1 tabindex="-1" dir="auto"><a id="user-content-case" class="anchor" aria-hidden="true" tabindex="-1" href="#case"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">案件</font></font></h1>
+<p align="center" dir="auto">
+  <a target="_blank" rel="noopener noreferrer" href="/rbaron/b-parasite/blob/main/img/case/screenshot.png"><img src="/rbaron/b-parasite/raw/main/img/case/screenshot.png" alt="原始 3D 打印案例的渲染图" style="max-width: 100%;"></a>
+</p>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">我们提供三种不同的 3D 打印案例：</font></font></p>
+<ol dir="auto">
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">原装卡扣式保护壳 - </font></font><a href="/rbaron/b-parasite/blob/main/case/Top.stl"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">case/Top.stl</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">、</font></font><a href="/rbaron/b-parasite/blob/main/case/Bottom.stl"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">case/Bottom.stl</font></font></a></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">高气流 - </font></font><a href="/rbaron/b-parasite/blob/main/case/b_parasite_case_high_airflow.stl"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">case/b_parasite_case_high_airflow.stl</font></font></a></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">蘑菇风格 - 可</font></font><a href="https://www.printables.com/model/456571-mushroomcap-for-b-parasite-soil-moisture-sensor" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">打印</font></font></a></li>
+</ol>
+<h1 tabindex="-1" dir="auto"><a id="user-content-license" class="anchor" aria-hidden="true" tabindex="-1" href="#license"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">执照</font></font></h1>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">硬件和相关设计文件根据</font></font><a href="https://creativecommons.org/licenses/by-sa/4.0/" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Creative Commons CC BY-SA 4.0 许可证</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">发布。</font><font style="vertical-align: inherit;">该代码是根据</font></font><a href="https://opensource.org/licenses/MIT" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">MIT 许可证</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">发布的。</font></font></p>
+</article></div>
